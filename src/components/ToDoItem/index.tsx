@@ -1,11 +1,24 @@
 import './todo-item.style.css'
 import { IconPencil, IconTrash } from "../icons";
+import { ReactNode } from 'react';
 
-export function ToDoItem ({ item }) {
+export type itemType = {
+    key: number,
+    item: item
+}
+
+export type item = {
+  id: number,
+  description: string,
+  completed: boolean,
+  createdAt: string
+}
+
+export function ToDoItem ({ item }: itemType) {
     const styles = ['todo-item']
 
     if (item.completed) {
-        styles.push('completed')
+        styles.push('completed');
     }
 
     return (

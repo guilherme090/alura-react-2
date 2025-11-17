@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
 import './todo-list.style.css'
 
-export function ToDoList ({ children }) {
+export function ToDoList ({ children }: {children: ReactNode}) {
     return (
         <ul className='todo-list'>
             {children}

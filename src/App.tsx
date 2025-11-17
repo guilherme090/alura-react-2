@@ -8,8 +8,15 @@ import { IconPlus, IconSchool } from "./components/icons"
 import { SubHeading } from "./components/SubHeading"
 import { ToDoItem } from "./components/ToDoItem"
 import { ToDoList } from "./components/ToDoList"
+import { item } from './components/ToDoItem'
+// export type itemType = {
+//   id: number,
+//   description: string,
+//   completed: boolean,
+//   createdAt: string
+// }
 
-const todos = [
+const todos: item[] = [
   {
     id: 1,
     description: "JSX e componentes",
@@ -35,7 +42,7 @@ const todos = [
     createdAt: "2022-10-31"
   }
 ]
-const completed = [
+const completed: item[] = [
   {
     id: 5,
     description: "Controle de inputs e formulários controlados",
