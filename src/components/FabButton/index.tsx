@@ -1,9 +1,13 @@
-import { ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 import './fab-button.style.css'
 
-export function FabButton({ children }: { children: ReactNode }) {
+type fabButtonProps = {
+    children: ReactNode
+} & ButtonHTMLAttributes<HTMLButtonElement>
+
+export function FabButton({ children, ...rest }: fabButtonProps) {
     return (
-        <button className='fab'>
+        <button className='fab' {...rest}>
             {children}
         </button>
     )

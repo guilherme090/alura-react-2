@@ -1,0 +1,22 @@
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.btn {
+    border-radius: 24px;
+    background-color: #877EED;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    padding: 16px 12px;
+    gap: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #544ACB;
+}

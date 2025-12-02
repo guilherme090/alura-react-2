@@ -1,0 +1,41 @@
+::backdrop {
+  background-color: #504d4d;
+  opacity: 0.85;
+}
+
+.dialog {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.dialog .body {
+  padding: 10px 40px;
+}
+
+.btn-close-wrapper {
+  text-align: right;
+}
+
+.btn-close {
+  background-color: transparent;
+  color: #eaeaea;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-save-wrapper {
+  text-align: center;
+}
+
+.btn-save {
+  background-color: #877EED;
+  color: #ffff;
+  text-align: center;
+  border: none;
+  border-radius: 24px;
+  width: 125px;
+  height: 48px;
+  padding: 12px 16px;
+}

@@ -5,59 +5,35 @@ import { Footer } from "./components/Footer"
 import { Header } from "./components/Header"
 import { Heading } from "./components/Heading"
 import { IconPlus, IconSchool } from "./components/icons"
-import { SubHeading } from "./components/SubHeading"
-import { ToDoItem } from "./components/ToDoItem"
-import { ToDoList } from "./components/ToDoList"
-import { item } from './components/ToDoItem'
-// export type itemType = {
-//   id: number,
-//   description: string,
-//   completed: boolean,
-//   createdAt: string
-// }
+import { Dialog } from "./components/Dialog"
+import { use, useState } from "react"
+import { TodoForm } from "./components/TodoForm"
+import TodoContext from "./components/TodoProvider/TodoContext"
+import { TodoGroup } from "./components/TodoGroup"
 
-const todos: item[] = [
-  {
-    id: 1,
-    description: "JSX e componentes",
-    completed: false,
-    createdAt: "2022-10-31"
-  },
-  {
-    id: 2,
-    description: "Props, state e hooks",
-    completed: false,
-    createdAt: "2022-10-31"
-  },
-  {
-    id: 3,
-    description: "Ciclo de vida dos componentes",
-    completed: false,
-    createdAt: "2022-10-31"
-  },
-  {
-    id: 4,
-    description: "Testes unitários com Jest",
-    completed: false,
-    createdAt: "2022-10-31"
-  }
-]
-const completed: item[] = [
-  {
-    id: 5,
-    description: "Controle de inputs e formulários controlados",
-    completed: true,
-    createdAt: "2022-10-31"
-  },
-  {
-    id: 6,
-    description: "Rotas dinâmicas",
-    completed: true,
-    createdAt: "2022-10-31"
-  }
-]
+export type itemType = {
+  id: number,
+  description: string,
+  completed: boolean,
+  createdAt: string
+}
 
 function App() {
+  const todoContext = use (TodoContext);
+ 
+  if (!todoContext) {
+    throw new Error("TodoContext must be used within a TodoProvider");
+  }
+  const { todos, addTodo, openFormTodoDialog, closeFormTodoDialog, selectedTodo, editTodo } = todoContext
+
+  const handleFormSubmit = (formData: FormData) => {
+    if(selectedTodo){
+      editTodo(formData);
+    } else {
+      addTodo(formData);
+    }
+    todoContext.closeFormTodoDialog();
+  }
 
   return (
     <main>
@@ -68,20 +44,19 @@ function App() {
           </Heading>
         </Header>
         <ChecklistsWrapper>
-          <SubHeading>Para estudar</SubHeading>
-          <ToDoList>
-            {todos.map(function (t) {
-              return <ToDoItem key={t.id} item={t} />
-            })}
-          </ToDoList>
-          <SubHeading>Concluído</SubHeading>
-          <ToDoList>
-            {completed.map(function (t) {
-              return <ToDoItem key={t.id} item={t} />
-            })}
-          </ToDoList>
+          <TodoGroup
+            heading='Para estudar'
+            items={todos.filter(todo => !todo.completed)}
+          />
+          <TodoGroup
+            heading='Concluído'
+            items={todos.filter(todo => todo.completed)}
+          />
           <Footer>
-            <FabButton>
+            <Dialog isOpen={todoContext.showDialog} onClose={todoContext.closeFormTodoDialog}>
+              <TodoForm onSubmit={handleFormSubmit} defaultValue={selectedTodo?.description}></TodoForm>
+            </Dialog>
+            <FabButton onClick={() => todoContext.openFormTodoDialog(null)}>
               <IconPlus />
             </FabButton>
           </Footer>
@@ -92,3 +67,7 @@ function App() {
 }
 
 export default App
+function editTodo(formData: FormData) {
+  throw new Error("Function not implemented.")
+}
+
