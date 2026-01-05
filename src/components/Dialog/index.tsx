@@ -1,15 +1,14 @@
-import React, { ReactNode, useEffect, useRef } from "react";
+import React, { type ReactNode, useEffect, useRef } from "react";
 import './dialog.style.css'
-import { IconClose } from "../icons";
-import { Button } from "../Button";
+import { IconClose } from "../icons/index.tsx";
 
-type dialogRefProps = {
+type DialogRefProps = {
     isOpen: boolean,
     onClose: () => void,
     children: ReactNode
 }
 
-export function Dialog ({ isOpen, onClose, children }: dialogRefProps) { 
+export function Dialog ({ isOpen, onClose, children }: DialogRefProps) { 
     const dialogRef = useRef<HTMLDialogElement>(null); //elementos que não precisam ser renderizados imediatamente.
 
     useEffect( () => {

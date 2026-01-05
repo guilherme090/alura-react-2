@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import './heading.style.css'
 
 export function Heading ({ children }: { children: ReactNode }) {

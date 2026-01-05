@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { item } from "../ToDoItem";
+import { type item } from "../ToDoItem/index.tsx";
 
 
 type TodoContextType = {

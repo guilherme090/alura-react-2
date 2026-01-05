@@ -1,8 +1,8 @@
 import { use } from "react";
-import { SubHeading } from "../SubHeading"
-import { item, ToDoItem } from "../ToDoItem"
-import { ToDoList } from "../ToDoList"
-import TodoContext from "../TodoProvider/TodoContext"
+import { SubHeading } from "../SubHeading/index.tsx"
+import { type item, ToDoItem } from "../ToDoItem/index.tsx"
+import { ToDoList } from "../ToDoList/index.tsx"
+import TodoContext from "../TodoProvider/TodoContext.ts"
 
 export function TodoGroup({heading, items}: {heading: string, items: item[]}) {
     const todoContext = use(TodoContext);

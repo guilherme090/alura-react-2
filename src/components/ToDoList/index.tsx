@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import './todo-list.style.css'
 
 export function ToDoList ({ children }: {children: ReactNode}) {

@@ -1,15 +1,15 @@
-import { ChecklistsWrapper } from "./components/ChecklistsWrapper"
-import { Container } from "./components/Container"
-import { FabButton } from "./components/FabButton"
-import { Footer } from "./components/Footer"
-import { Header } from "./components/Header"
-import { Heading } from "./components/Heading"
-import { IconPlus, IconSchool } from "./components/icons"
-import { Dialog } from "./components/Dialog"
-import { use, useState } from "react"
-import { TodoForm } from "./components/TodoForm"
-import TodoContext from "./components/TodoProvider/TodoContext"
-import { TodoGroup } from "./components/TodoGroup"
+import { ChecklistsWrapper } from "./components/ChecklistsWrapper/index.tsx"
+import { Container } from "./components/Container/index.tsx"
+import { FabButton } from "./components/FabButton/index.tsx"
+import { Footer } from "./components/Footer/index.tsx"
+import { Header } from "./components/Header/index.tsx"
+import { Heading } from "./components/Heading/index.tsx"
+import { IconPlus, IconSchool } from "./components/icons/index.tsx"
+import { Dialog } from "./components/Dialog/index.tsx"
+import { use } from "react"
+import { TodoForm } from "./components/TodoForm/index.tsx"
+import TodoContext from "./components/TodoProvider/TodoContext.ts"
+import { TodoGroup } from "./components/TodoGroup/index.tsx"
 
 export type itemType = {
   id: number,
@@ -24,7 +24,7 @@ function App() {
   if (!todoContext) {
     throw new Error("TodoContext must be used within a TodoProvider");
   }
-  const { todos, addTodo, openFormTodoDialog, closeFormTodoDialog, selectedTodo, editTodo } = todoContext
+  const { todos, addTodo, selectedTodo, editTodo } = todoContext
 
   const handleFormSubmit = (formData: FormData) => {
     if(selectedTodo){
@@ -67,7 +67,4 @@ function App() {
 }
 
 export default App
-function editTodo(formData: FormData) {
-  throw new Error("Function not implemented.")
-}
 

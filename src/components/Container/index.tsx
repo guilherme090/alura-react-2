@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import './container.style.css'
 
 export function Container ({ children }: { children: ReactNode }) {

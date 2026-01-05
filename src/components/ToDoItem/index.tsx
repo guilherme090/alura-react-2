@@ -1,9 +1,9 @@
 import './todo-item.style.css'
-import { IconPencil, IconTrash } from "../icons";
+import { IconPencil, IconTrash } from "../icons/index.tsx";
 import { use } from 'react';
-import TodoContext from '../TodoProvider/TodoContext';
+import TodoContext from '../TodoProvider/TodoContext.ts';
 
-export type itemType = {
+export type ItemType = {
     key: number,
     item: item,
     onToggleCompleted: (todo: item) => void,
@@ -17,7 +17,7 @@ export type item = {
   createdAt: string,
 }
 
-export function ToDoItem ({ item }: itemType) {
+export function ToDoItem ({ item }: ItemType) {
 
     const styles = ['todo-item']
 

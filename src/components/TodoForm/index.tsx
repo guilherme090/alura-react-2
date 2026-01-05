@@ -1,5 +1,5 @@
-import { Button } from "../Button";
-import { TextInput } from "../TextInput";
+import { Button } from "../Button/index.tsx";
+import { TextInput } from "../TextInput/index.tsx";
 
 export function TodoForm({onSubmit, defaultValue}: {onSubmit: (formData: FormData) => void, defaultValue: string | undefined}) {
     return(

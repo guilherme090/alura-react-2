@@ -1,6 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
-import TodoContext from "./TodoContext";
-import { item } from "../ToDoItem";
+import { useEffect, useState, type ReactNode } from "react";
+import TodoContext from "./TodoContext.ts";
+import { type item } from "../ToDoItem/index.tsx";
 
 const TODOS = 'todos';
 

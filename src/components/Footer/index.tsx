@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import './footer.style.css'
 
 export function Footer ({ children }: { children: ReactNode }) {
